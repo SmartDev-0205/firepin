@@ -60,7 +60,7 @@ const Header = () => {
                         <a className="mob-menu__link" href="#paper">Whitepaper</a>
                     </li>
                     <button className="header_signin_btn">
-                        Buy $FRPN on Firepin Swap</button>
+                        Buy $PXDS on Pexdos Swap</button>
                 </ul>
             </nav>
         </>

@@ -83,17 +83,18 @@ const Home = () => {
                                 <a className="btn" href="#">
                                     <button className="btn btn--medium swap-btn">
                                         <span className="swap-icon"></span>
-                                        Buy $FRPN on Pexdos Swap
+                                        Buy $PXDS on Pexdos Swap
                                     </button>
                                 </a>
                             </div>
                             <div className="promo__btns-wrap">
-                                <a href="#" className="btn btn--medium btn--orange">
-                                    <span>Buy $FRPN on PancakeSwap</span>
+                                <a href="https://pancakeswap.finance/swap?outputCurrency=0x2F1F71377e5C1070c6694171CFBde0eb6daf8023
+                                                                        " className="btn btn--medium btn--orange">
+                                    <span>Buy $PXDS on PancakeSwap</span>
                                 </a>
                             </div>
                             <div className="promo__btns-wrap">
-                                <a href="" className="btn btn--medium btn--orange">
+                                <a href="https://dex.guru/token/0x2f1f71377e5c1070c6694171cfbde0eb6daf8023-bsc" className="btn btn--medium btn--orange">
                                     <span>Price Chart</span>
                                 </a>
                             </div>
@@ -164,14 +165,14 @@ const Home = () => {
                                         </h2>
                                     </div>
                                     <p>
-                                        Pexdos is a decentralized protocol based on the $FRPN token – collateralized and backed by the METAVERSE DAO.
+                                        Pexdos is a decentralized protocol based on the $PXDS token – collateralized and backed by the METAVERSE DAO.
                                     </p>
                                     <ul>
                                         <li>
-                                            <span>$FRPN
+                                            <span>$PXDS
                                             </span>
                                             will be the reserve currency on BNB. In order to maintain price stability Pexdos will use the Algorithmic Reserve Currency algorithm
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                and will also be supported by other decentralized assets. METAVERSE DAO is focused on a long term and profitable treasury fund allocation.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        and will also be supported by other decentralized assets. METAVERSE DAO is focused on a long term and profitable treasury fund allocation.
                                         </li>
                                         <li>
                                             <span>Our mission</span>
@@ -563,7 +564,7 @@ const Home = () => {
                                                 Treasury Growth
                                             </div>
                                             <p className="cases__item-text">
-                                                Treasury inflow is increasing the Treasury Balance and backs outstanding $FRPN tokens and regulates staking APY.
+                                                Treasury inflow is increasing the Treasury Balance and backs outstanding $PXDS tokens and regulates staking APY.
                                             </p>
                                         </div>
                                     </div>
@@ -660,7 +661,7 @@ const Home = () => {
                         style={
                             {padding: "5px 10px"}
                     }>
-                        <span>Buy $FRPN on PancakeSwap</span>
+                        <span>Buy $PXDS on PancakeSwap</span>
                     </a>
                 </div>
             </section>
@@ -696,7 +697,7 @@ const Home = () => {
                             sm={5}
                             md={3}>
                             <div className="counter__item">
-                                <div className="counter__item-title">Pre-Sale $FRPN Starting PRICE (USD)</div>
+                                <div className="counter__item-title">Pre-Sale $PXDS Starting PRICE (USD)</div>
                                 <div className="counter counter__item-value counter__item-value--blue numscroller">0.000067</div>
                             </div>
                         </Grid>
@@ -847,7 +848,7 @@ const Home = () => {
                                     <div class="aos-item__inner">
                                         <div className="col-lg-6 offset-lg-6 token__animated-content aos-init aos-animate">
                                             <div className="section-header section-header--tire section-header--small-margin">
-                                                <h4>About FRPN</h4>
+                                                <h4>About PXDS</h4>
                                                 <h2>Tokenomics</h2>
                                                 <div className="bg-title">
                                                     TOKENOMICS
@@ -860,7 +861,7 @@ const Home = () => {
                                                 </li>
                                                 <li>
                                                     <span>Ticker Symbol:</span>
-                                                    $FRPN&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                                    $PXDS&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                                                 </li>
                                                 <li>
                                                     <span>Decimals:</span>
@@ -868,7 +869,7 @@ const Home = () => {
                                                 </li>
                                                 <li>
                                                     <span>TOTAL SUPPLY:</span>
-                                                    100 BILLION $FRPN
+                                                    100 BILLION $PXDS
                                                 </li>
                                                 <li>
                                                     <span>PHASE 1 PRE-SALE:</span>
@@ -884,7 +885,7 @@ const Home = () => {
                                                 </li>
                                                 <li>
                                                     <span>TOTAL PRE-SALE:</span>
-                                                    30,000,000,000 $FRPN</li>
+                                                    30,000,000,000 $PXDS</li>
                                                 <li>
                                                     <span>TAX:</span>
                                                     6% TAX on ALL Orders</li>
@@ -916,7 +917,7 @@ const Home = () => {
                                                 }
                                                 href="https://pancakeswap.finance/swap?outputCurrency=0x2F1F71377e5C1070c6694171CFBde0eb6daf8023"
                                                 className="btn btn--small btn--uppercase btn--orange">
-                                                <span>Buy $FRPN on PancakeSwap</span>
+                                                <span>Buy $PXDS on PancakeSwap</span>
                                             </a>
                                             <div className="token__desc">
                                                 <div className="token__desc-title">&nbsp;</div>
@@ -1207,13 +1208,13 @@ const Home = () => {
                                                     Bridge Reserve
                                                     <b style={
                                                         {color: "#77c0f6"}
-                                                    }>5,000,000,000 FRPT</b>
+                                                    }>5,000,000,000 PXDS</b>
                                                 </div>
                                                 <div className="data__info-item">
                                                     Pre-SALE
                                                     <b style={
                                                         {color: "#f9778a"}
-                                                    }>30,000,000,000 FRPT</b>
+                                                    }>30,000,000,000 PXDS</b>
                                                 </div>
 
                                             </div>
@@ -1224,7 +1225,7 @@ const Home = () => {
                                                 }
                                                 href="https://pancakeswap.finance/swap?outputCurrency=0x2F1F71377e5C1070c6694171CFBde0eb6daf8023"
                                                 className="btn btn--small btn--uppercase blue">
-                                                <span>Buy $FRPN on PancakeSwap</span>
+                                                <span>Buy $PXDS on PancakeSwap</span>
                                             </a>
                                             <div className="token__desc">
                                                 <div className="token__desc-title">&nbsp;</div>
