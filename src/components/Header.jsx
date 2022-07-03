@@ -26,7 +26,7 @@ const Header = () => {
                 }>
                     <div className="logo_container">
                         <img src={img_logo}
-                            alt="logo"/><span>FIREPING</span>
+                            alt="logo"/><span>Pexdos</span>
                     </div>
                 </div>
                 <div className="menu">
@@ -40,24 +40,24 @@ const Header = () => {
                 }>
                     <div className="logo_container">
                         <img src={img_logo}
-                            alt="logo"/><span>FIREPING</span>
+                            alt="logo"/><span>Pexdos</span>
                     </div>
                 </div>
                 <ul>
                     <li className="header_home_li">
-                        <a href="#who">Who Are We</a>
+                        <a className="mob-menu__link" href="#who">Who Are We</a>
                     </li>
                     <li>
-                        <a href="#project">Projects</a>
+                        <a className="mob-menu__link" href="#project">Projects</a>
                     </li>
                     <li>
-                        <a href="#roadmap">Road Map</a>
+                        <a className="mob-menu__link" href="#roadmap">Road Map</a>
                     </li>
                     <li>
-                        <a href="#token">Tokenomics</a>
+                        <a className="mob-menu__link" href="#token">Tokenomics</a>
                     </li>
                     <li>
-                        <a href="#paper">Whitepaper</a>
+                        <a className="mob-menu__link" href="#paper">Whitepaper</a>
                     </li>
                     <button className="header_signin_btn">
                         Buy $FRPN on Firepin Swap</button>

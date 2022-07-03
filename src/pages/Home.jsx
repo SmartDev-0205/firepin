@@ -72,7 +72,7 @@ const Home = () => {
                             xs={10}
                             md={6}>
                             <div className="font_first">
-                                <h1>FIREPIN TOKEN&nbsp;
+                                <h1>Pexdos TOKEN&nbsp;
                                     <span>Building towards a community-driven METAVERSE Universe</span>
                                 </h1>
                                 <p>
@@ -83,7 +83,7 @@ const Home = () => {
                                 <a className="btn" href="#">
                                     <button className="btn btn--medium swap-btn">
                                         <span className="swap-icon"></span>
-                                        Buy $FRPN on Firepin Swap
+                                        Buy $FRPN on Pexdos Swap
                                     </button>
                                 </a>
                             </div>
@@ -156,7 +156,7 @@ const Home = () => {
                             <div className="economy__block">
                                 <div className="economy__block-content">
                                     <div className="section-header section-header--white section-header--tire section-header--small-margin">
-                                        <h4>WhO&nbsp; is FIREPIN?</h4>
+                                        <h4>WhO&nbsp; is Pexdos?</h4>
 
                                         <h2>
                                             We Are All In One &nbsp;
@@ -164,13 +164,13 @@ const Home = () => {
                                         </h2>
                                     </div>
                                     <p>
-                                        FIREPIN is a decentralized protocol based on the $FRPN token – collateralized and backed by the METAVERSE DAO.
+                                        Pexdos is a decentralized protocol based on the $FRPN token – collateralized and backed by the METAVERSE DAO.
                                     </p>
                                     <ul>
                                         <li>
                                             <span>$FRPN
                                             </span>
-                                            will be the reserve currency on BNB. In order to maintain price stability FIREPIN will use the Algorithmic Reserve Currency algorithm
+                                            will be the reserve currency on BNB. In order to maintain price stability Pexdos will use the Algorithmic Reserve Currency algorithm
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 and will also be supported by other decentralized assets. METAVERSE DAO is focused on a long term and profitable treasury fund allocation.
                                         </li>
                                         <li>
@@ -179,7 +179,7 @@ const Home = () => {
                                         </li>
                                         <li>
                                             <span>Community Led.</span>
-                                            This will be achieved through community voting as per majority decisions made by FirePin Community.
+                                            This will be achieved through community voting as per majority decisions made by Pexdos Community.
                                         </li>
                                     </ul>
                                 </div>
@@ -202,7 +202,7 @@ const Home = () => {
                                     <div class="aos-item__inner">
                                         <div className="section-header section-header--animated section-header--tire section-header--small-margin">
                                             <h4>WHO ARE WE</h4>
-                                            <h2>FIREPIN<br/>
+                                            <h2>Pexdos<br/>
                                                 <div className="bg-title">
                                                     WHO ARE WE
                                                 </div>
@@ -234,7 +234,7 @@ const Home = () => {
                 </div>
                 <section className="services" id="project">
                     <div className="section-header section-header--animated section-header--center section-header--medium-margin">
-                        <h4>How FirePIN WORKS</h4>
+                        <h4>How Pexdos WORKS</h4>
                         <h2>Community is everything</h2>
                     </div>
                     <Grid container
@@ -434,7 +434,7 @@ const Home = () => {
                                         Q1 2022
                                     </div>
                                     <p></p>
-                                    <p>FIREPIN TOKEN Platform Build.</p>
+                                    <p>Pexdos TOKEN Platform Build.</p>
                                     <p>
                                         <b>Funding Rounds with Presale and start as decentralized as possible</b>
                                     </p>
@@ -538,7 +538,7 @@ const Home = () => {
                             {marginTop: "120px"}
                         }
                         className="section-header section-header--animated section-header--center section-header--medium-margin">
-                        <h4>FIREPIN PROJECTS</h4>
+                        <h4>Pexdos PROJECTS</h4>
                         <h2>Building a community-driven METAVERSE Universe</h2>
                         <div className="bg-title">
                             PROJECTS
@@ -856,7 +856,7 @@ const Home = () => {
                                             <ul className="token__info-list">
                                                 <li>
                                                     <span>Token name:</span>
-                                                    FIREPIN TOKEN&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                                    Pexdos TOKEN&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                                                 </li>
                                                 <li>
                                                     <span>Ticker Symbol:</span>
@@ -1185,7 +1185,7 @@ const Home = () => {
                                             <ul className="token__info-list">
                                                 <li>
                                                     <span>Name:</span>
-                                                    FIREPIN&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                                    Pexdos&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                                                 </li>
                                                 <li>
                                                     <span>First Chain:</span>
@@ -1260,9 +1260,9 @@ const Home = () => {
                                 md={6}>
                                 <a href="#" className="logo">
                                     <div className="logo__img">""</div>
-                                    <div className="logo__title">FIREPIN</div>
+                                    <div className="logo__title">Pexdos</div>
                                 </a>
-                                <div className="copyright">© 2022, FIREPIN
+                                <div className="copyright">© 2022, Pexdos
                                 </div>
                             </Grid>
                             <Grid item
@@ -1276,24 +1276,24 @@ const Home = () => {
                                         {justifyContent: "center"}
                                 }>
                                     <li className="social-list__item">
-                                        <a href="https://twitter.com/FIREPIN_io" className="social-list__link">
+                                        <a href="https://twitter.com/Pexdos_io" className="social-list__link">
                                             <i class="fontello-icon fab fa-twitter"></i>
                                         </a>
                                     </li>
                                     <li className="social-list__item">
-                                        <a href="https://www.facebook.com/FIREPIN" className="social-list__link">
+                                        <a href="https://www.facebook.com/Pexdos" className="social-list__link">
                                             <i class="fontello-icon fab fa-facebook"></i>
 
                                         </a>
                                     </li>
                                     <li className="social-list__item">
-                                        <a href="https://t.me/FIREPINTOKENOFFICIAL" className="social-list__link">
+                                        <a href="https://t.me/PexdosTOKENOFFICIAL" className="social-list__link">
                                             <i class="fontello-icon fab fa-telegram"></i>
 
                                         </a>
                                     </li>
                                     <li className="social-list__item">
-                                        <a href="https://www.instagram.com/firepin_io" className="social-list__link">
+                                        <a href="https://www.instagram.com/Pexdos_io" className="social-list__link">
                                             <i class="fontello-icon fab fa-instagram"></i>
 
                                         </a>
