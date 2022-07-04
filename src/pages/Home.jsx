@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import ReactDOM from 'react-dom';
+import React, {useEffect} from "react";
+
 import Grid from "@material-ui/core/Grid";
 import video_btn_img from "../assets/body/video-btn.png";
 import about_img from "../assets/body/about-img.webp";
@@ -22,43 +22,8 @@ import solana_round from "../assets/body/solana-round.png";
 import polygon_round from "../assets/body/polygon-round.png";
 import token_img from "../assets/body/token-img.png";
 import img_logo from "../assets/header/logo.png";
-
 const Home = () => {
-    const graph = [
-        {
-            label: 'Give you up',
-            value: 1208.84
-        },
-        {
-            label: 'Let you down',
-            value: 198.51
-        },
-        {
-            label: 'Run around',
-            value: 754,
-            className: 'classNameTest'
-        },
-        {
-            label: '',
-            value: 500,
-            isEmpty: true
-        }, {
-            label: 'Desert you',
-            value: 760
-        }, {
-            label: 'Make you cry',
-            value: 1108
-        }, {
-            label: 'Say goodbye',
-            value: 358
-        }, {
-            label: 'Tell a lie',
-            value: 879
-        }, {
-            label: 'Hurt you',
-            value: 1250
-        },
-    ];
+
     return (
         <div id="body">
             <section className="economy">
@@ -70,7 +35,7 @@ const Home = () => {
                         <Grid item xs ={1}></Grid>
                         <Grid item
                             xs={10}
-                            md={6}>
+                            md={10}>
                             <div className="font_first">
                                 <h1>Pexdos TOKEN&nbsp;
                                     <span>Building towards a community-driven METAVERSE Universe</span>
@@ -78,6 +43,12 @@ const Home = () => {
                                 <p>
                                     Community driven DAO platform with METAVERSE integration.
                                 </p>
+                            </div>
+
+                            <div className="countdown">
+                                <div id="countdown"></div>
+
+
                             </div>
                             <div className="promo__btns-wrap">
                                 <a className="btn" href="#">
@@ -89,7 +60,7 @@ const Home = () => {
                             </div>
                             <div className="promo__btns-wrap">
                                 <a href="https://pancakeswap.finance/swap?outputCurrency=0x2F1F71377e5C1070c6694171CFBde0eb6daf8023
-                                                                        " className="btn btn--medium btn--orange">
+                                                                                                                                                                                                                        " className="btn btn--medium btn--orange">
                                     <span>Buy $PXDS on PancakeSwap</span>
                                 </a>
                             </div>
@@ -172,7 +143,7 @@ const Home = () => {
                                             <span>$PXDS
                                             </span>
                                             will be the reserve currency on BNB. In order to maintain price stability Pexdos will use the Algorithmic Reserve Currency algorithm
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        and will also be supported by other decentralized assets. METAVERSE DAO is focused on a long term and profitable treasury fund allocation.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        and will also be supported by other decentralized assets. METAVERSE DAO is focused on a long term and profitable treasury fund allocation.
                                         </li>
                                         <li>
                                             <span>Our mission</span>
@@ -200,7 +171,7 @@ const Home = () => {
                             md={6}>
                             <div id="transcroller-body">
                                 <div data-aos-once="true" data-aos="fade-right">
-                                    <div class="aos-item__inner">
+                                    <div className="aos-item__inner">
                                         <div className="section-header section-header--animated section-header--tire section-header--small-margin">
                                             <h4>WHO ARE WE</h4>
                                             <h2>Pexdos<br/>
@@ -265,7 +236,7 @@ const Home = () => {
 
                                 <div id="transcroller-body">
                                     <div data-aos-once="true" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                                        <div class="aos-item__inner">
+                                        <div className="aos-item__inner">
                                             <div className="service"
                                                 style={
                                                     {
@@ -299,7 +270,7 @@ const Home = () => {
 
                                 <div id="transcroller-body">
                                     <div data-aos-once="true" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                                        <div class="aos-item__inner">
+                                        <div className="aos-item__inner">
                                             <div className="service"
                                                 style={
                                                     {
@@ -351,7 +322,7 @@ const Home = () => {
 
                                 <div id="transcroller-body">
                                     <div data-aos-once="true" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
-                                        <div class="aos-item__inner">
+                                        <div className="aos-item__inner">
                                             <div className="service"
                                                 style={
                                                     {
@@ -385,7 +356,7 @@ const Home = () => {
 
                                 <div id="transcroller-body">
                                     <div data-aos-once="true" data-aos="fade-up" data-aos-delay="700" data-aos-duration="1000">
-                                        <div class="aos-item__inner">
+                                        <div className="aos-item__inner">
                                             <div className="service"
                                                 style={
                                                     {
@@ -504,7 +475,7 @@ const Home = () => {
 
             <div id="transcroller-body">
                 <div data-aos-once="true" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                    <div class="aos-item__inner">
+                    <div className="aos-item__inner">
                         <section className="partner">
                             <div className="partners-logo__block">
                                 <div className="partners-logo__item">
@@ -554,7 +525,7 @@ const Home = () => {
 
                         <div id="transcroller-body">
                             <div data-aos-once="true" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000">
-                                <div class="aos-item__inner">
+                                <div className="aos-item__inner">
                                     <div className="flex">
                                         <img src={case_icon1}
                                             alt=""
@@ -580,7 +551,7 @@ const Home = () => {
 
                         <div id="transcroller-body">
                             <div data-aos-once="true" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
-                                <div class="aos-item__inner">
+                                <div className="aos-item__inner">
                                     <div className="flex">
                                         <img src={case_icon2}
                                             alt=""
@@ -605,7 +576,7 @@ const Home = () => {
 
                         <div id="transcroller-body">
                             <div data-aos-once="true" data-aos="fade-right" data-aos-delay="100" data-aos-duration="2000">
-                                <div class="aos-item__inner">
+                                <div className="aos-item__inner">
                                     <div className="flex">
                                         <img src={case_icon3}
                                             alt=""
@@ -630,7 +601,7 @@ const Home = () => {
 
                         <div id="transcroller-body">
                             <div data-aos-once="true" data-aos="fade-left" data-aos-delay="300" data-aos-duration="2000">
-                                <div class="aos-item__inner">
+                                <div className="aos-item__inner">
                                     <div className="flex">
                                         <img src={case_icon4}
                                             alt=""
@@ -845,7 +816,7 @@ const Home = () => {
 
                             <div id="transcroller-body">
                                 <div data-aos-once="true" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                                    <div class="aos-item__inner">
+                                    <div className="aos-item__inner">
                                         <div className="col-lg-6 offset-lg-6 token__animated-content aos-init aos-animate">
                                             <div className="section-header section-header--tire section-header--small-margin">
                                                 <h4>About PXDS</h4>
@@ -979,7 +950,7 @@ const Home = () => {
 
                             <div id="transcroller-body">
                                 <div data-aos-once="true" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                                    <div class="aos-item__inner">
+                                    <div className="aos-item__inner">
                                         <div className="service service_other"
                                             style={
                                                 {
@@ -1021,7 +992,7 @@ const Home = () => {
 
                             <div id="transcroller-body">
                                 <div data-aos-once="true" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                                    <div class="aos-item__inner">
+                                    <div className="aos-item__inner">
                                         <div className="service service_other"
                                             style={
                                                 {
@@ -1064,7 +1035,7 @@ const Home = () => {
 
                             <div id="transcroller-body">
                                 <div data-aos-once="true" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
-                                    <div class="aos-item__inner">
+                                    <div className="aos-item__inner">
                                         <div className="service service_other"
                                             style={
                                                 {
@@ -1106,7 +1077,7 @@ const Home = () => {
 
                             <div id="transcroller-body">
                                 <div data-aos-once="true" data-aos="fade-up" data-aos-delay="700" data-aos-duration="1000">
-                                    <div class="aos-item__inner">
+                                    <div className="aos-item__inner">
                                         <div className="service service_other"
                                             style={
                                                 {
@@ -1127,6 +1098,7 @@ const Home = () => {
                                                 }/>
                                             <div className="service_title1">
                                                 Gertik Audit
+
                                             </div>
                                         </div>
                                     </div>
@@ -1146,13 +1118,13 @@ const Home = () => {
                             <main>
                                 <section>
                                     <h1>Статистика браузеров (06.2014)</h1>
-                                    <div class="pie-container">
-                                        <div id="safari" class="pie"></div>
-                                        <div id="ie" class="pie"></div>
-                                        <div id="firefox" class="pie"></div>
-                                        <div id="chrome" class="pie"></div>
+                                    <div className="pie-container">
+                                        <div id="safari" className="pie"></div>
+                                        <div id="ie" className="pie"></div>
+                                        <div id="firefox" className="pie"></div>
+                                        <div id="chrome" className="pie"></div>
                                     </div>
-                                    <div class="stats">
+                                    <div className="stats">
                                         <ul>
                                             <li data-name="dis">
                                                 50% Distribution</li>
@@ -1172,7 +1144,7 @@ const Home = () => {
 
                             <div id="transcroller-body">
                                 <div data-aos-once="true" data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000">
-                                    <div class="aos-item__inner">
+                                    <div className="aos-item__inner">
                                         <div className="col-lg-6 offset-lg-6 token__animated-content aos-init aos-animate">
                                             <div className="section-header section-header--tire section-header--small-margin">
                                                 <h4>TOKEN INFORMATION</h4>
@@ -1278,24 +1250,24 @@ const Home = () => {
                                 }>
                                     <li className="social-list__item">
                                         <a href="https://twitter.com/Pexdos_io" className="social-list__link">
-                                            <i class="fontello-icon fab fa-twitter"></i>
+                                            <i className="fontello-icon fab fa-twitter"></i>
                                         </a>
                                     </li>
                                     <li className="social-list__item">
                                         <a href="https://www.facebook.com/Pexdos" className="social-list__link">
-                                            <i class="fontello-icon fab fa-facebook"></i>
+                                            <i className="fontello-icon fab fa-facebook"></i>
 
                                         </a>
                                     </li>
                                     <li className="social-list__item">
                                         <a href="https://t.me/PexdosTOKENOFFICIAL" className="social-list__link">
-                                            <i class="fontello-icon fab fa-telegram"></i>
+                                            <i className="fontello-icon fab fa-telegram"></i>
 
                                         </a>
                                     </li>
                                     <li className="social-list__item">
                                         <a href="https://www.instagram.com/Pexdos_io" className="social-list__link">
-                                            <i class="fontello-icon fab fa-instagram"></i>
+                                            <i className="fontello-icon fab fa-instagram"></i>
 
                                         </a>
                                     </li>
