@@ -1,7 +1,11 @@
 import React, {useEffect} from "react";
 import $ from "jquery";
 import img_logo from "../assets/header/logo.png";
+
+import {Link} from "react-router-dom";
+
 const Header = () => {
+
     useEffect(() => {
         $(window).on("scroll", function () {
             if ($(window).scrollTop()) {
@@ -26,7 +30,7 @@ const Header = () => {
                 }>
                     <div className="logo_container">
                         <img src={img_logo}
-                            alt="logo"/><span>Pexdos</span>
+                            alt="logo"/><span><a href="/" style={{color:"white"}}>Pexdos</a></span>
                     </div>
                 </div>
                 <div className="menu">
@@ -40,7 +44,7 @@ const Header = () => {
                 }>
                     <div className="logo_container">
                         <img src={img_logo}
-                            alt="logo"/><span>Pexdos</span>
+                            alt="logo"/><span><a href="/" style={{color:"white"}}>Pexdos</a></span>
                     </div>
                 </div>
                 <ul>
@@ -61,6 +65,14 @@ const Header = () => {
                     </li>
                     <button className="header_signin_btn">
                         Buy $PXDS on Pexdos Swap</button>
+                    &nbsp;
+                                                &nbsp;
+                                                &nbsp;
+                    <Link to="/signin">
+                        <button className="header_signin_btn">
+                            Sign In</button>
+                    </Link>
+
                 </ul>
             </nav>
         </>
