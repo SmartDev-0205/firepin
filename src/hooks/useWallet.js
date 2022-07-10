@@ -8,7 +8,6 @@ import {
 } from '@web3-react/injected-connector';
 import { UserRejectedRequestError as UserRejectedRequestErrorWalletConnect } from '@web3-react/walletconnect-connector';
 import { useEffect } from 'react';
-import { message } from 'antd';
 import { NotificationManager } from "react-notifications";
 
 const handleError = (error) => {
@@ -17,6 +16,7 @@ const handleError = (error) => {
       'No Ethereum browser extension detected, install MetaMask on desktop or visit from a dApp browser on mobile.'
     );
   } else if (error instanceof UnsupportedChainIdError) {
+    console.log(error);
     NotificationManager.error("Network Error, Please connect to BSC Mainnet");
   } else if (
     error instanceof UserRejectedRequestErrorInjected ||
@@ -65,19 +65,20 @@ export const useWallet = () => {
             'No Ethereum browser extension detected, install MetaMask on desktop or visit from a dApp browser on mobile.'
           );
         }
-        return await activate(injected, (error) => handleError(error));
+        return await activate(injected, undefined, true, (error) => handleError(error));
       }
 
       if (type === 'walletconnect') {
         console.log("wallet connection",walletconnect);
-        return await activate(walletconnect, (error) => handleError(error));
+        return await activate(walletconnect, undefined, true, (error) => handleError(error));
       }
 
       if (type === 'walletlink') {
-        return await activate(walletlink, (error) => handleError(error));
+        return await activate(walletlink, undefined, true, (error) => handleError(error));
       }
     } catch (err) {
       console.log('Connect wallet err', err);
+      walletconnect.walletConnectProvider = null;
     }
   };
 

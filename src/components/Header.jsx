@@ -1,19 +1,16 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import $ from "jquery";
 import img_logo from "../assets/header/logo.png";
-
-import {Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Header = () => {
 
+    console.log("------------------",process.env);
+    const navigate = useNavigate();
+    const [flag, setFlag] = useState(false);
+
     useEffect(() => {
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop()) {
-                $("nav").addClass("black");
-            } else {
-                $("nav").removeClass("black");
-            }
-        });
         $(".menu h4").click(function () {
             $("nav ul").toggleClass("active");
         });
@@ -21,58 +18,116 @@ const Header = () => {
             $("nav ul").removeClass("active");
         });
     }, []);
+
+    useEffect(() => {
+        if (localStorage.getItem("userToken") != undefined) {
+            getVerification();
+        }
+    }, [flag, localStorage.getItem("userToken")]);
+
+    const getVerification = async () => {
+        let token = localStorage.getItem("userToken");
+        let result = await axios.post(
+            process.env.REACT_APP_BACKEND_URL + "/api/user/checkverification",
+            {
+                username: localStorage.getItem("username"),
+            },
+            {
+                headers: {
+                    "x-access-token": token,
+                },
+            }
+        );
+        if (result.data === "Verified") {
+            setFlag(true);
+        } else if (result.data === "Not verified") {
+            setFlag(false);
+        }
+    };
+
+    const SignOut = async () => {
+        localStorage.removeItem("userToken");
+        localStorage.removeItem("username");
+        setFlag(false);
+        navigate("/signin");
+    };
+
     return (
         <>
             <div className="responsive-bar">
-                <div className="logo"
-                    style={
-                        {width: "70%"}
-                }>
+                <div className="logo" style={{ width: "70%" }}>
                     <div className="logo_container">
-                        <img src={img_logo}
-                            alt="logo"/><span><a href="/" style={{color:"white"}}>Pexdos</a></span>
+                        <img src={img_logo} alt="logo" />
+                        <span>
+                            <a href="/" style={{ color: "white" }}>
+                                Pexdos
+                            </a>
+                        </span>
                     </div>
                 </div>
                 <div className="menu">
                     <h4>Menu</h4>
                 </div>
             </div>
-            <nav>
-                <div className="logo"
-                    style={
-                        {width: "10%"}
-                }>
+            <nav style={{ background: "#161e1e", zIndex: "200" }}>
+                <div className="logo" style={{ width: "10%" }}>
                     <div className="logo_container">
-                        <img src={img_logo}
-                            alt="logo"/><span><a href="/" style={{color:"white"}}>Pexdos</a></span>
+                        <img src={img_logo} alt="logo" />
+                        <span>
+                            <a href="/" style={{ color: "white" }}>
+                                Pexdos
+                            </a>
+                        </span>
                     </div>
                 </div>
                 <ul>
                     <li className="header_home_li">
-                        <a className="mob-menu__link" href="#who">Who Are We</a>
+                        <a className="mob-menu__link" href="/#who">
+                            Who Are We
+                        </a>
                     </li>
                     <li>
-                        <a className="mob-menu__link" href="#project">Projects</a>
+                        <a className="mob-menu__link" href="/#project">
+                            Projects
+                        </a>
                     </li>
                     <li>
-                        <a className="mob-menu__link" href="#roadmap">Road Map</a>
+                        <a className="mob-menu__link" href="/#roadmap">
+                            Road Map
+                        </a>
                     </li>
                     <li>
-                        <a className="mob-menu__link" href="#token">Tokenomics</a>
+                        <a className="mob-menu__link" href="/#token">
+                            Tokenomics
+                        </a>
                     </li>
                     <li>
-                        <a className="mob-menu__link" href="#paper">Whitepaper</a>
+                        <a className="mob-menu__link" href="/#paper">
+                            Whitepaper
+                        </a>
                     </li>
-                    <button className="header_signin_btn">
-                        Buy $PXDS on Pexdos Swap</button>
-                    &nbsp;
-                                                &nbsp;
-                                                &nbsp;
-                    <Link to="/signin">
-                        <button className="header_signin_btn">
-                            Sign In</button>
-                    </Link>
-
+                    <li>
+                        {flag && (
+                            <Link to="/presale">
+                                <button className="header_signin_btn">
+                                    Buy $PXDS
+                                </button>
+                            </Link>
+                        )}
+                    </li>
+                    <li>
+                        {localStorage.getItem("userToken") ? (
+                            <button className="header_signin_btn" onClick={SignOut}>
+                                Sign Out
+                            </button>
+                        ) : (
+                            <Link to="/signin">
+                                <button className="header_signin_btn">
+                                    Sign In
+                                </button>
+                            </Link>
+                        )}
+                    </li>
                 </ul>
             </nav>
         </>

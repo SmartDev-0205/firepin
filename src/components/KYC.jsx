@@ -1,241 +1,456 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import Grid from "@material-ui/core/Grid";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import countries from "./mock.json";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function KYC() {
-  return (
-      <div style={{marginTop:"100px"}}>
-      <section className="wizard-section">
-		<div className="row no-gutters">
+    const navigate = useNavigate();
+    useEffect(() => {
+        const reloadCount = localStorage.getItem("reloadCount");
+        if (reloadCount < 2) {
+            localStorage.setItem("reloadCount", String(reloadCount + 1));
+            window.location.reload();
+        } else {
+            localStorage.removeItem("reloadCount");
+        }
+        getVerification();
+    }, []);
 
-			<div className="col-lg-10 col-md-10">
-				<div className="form-wizard">
-					<form action="" method="post" role="form">
-						<div className="form-wizard-header">
-							<ul className="list-unstyled form-wizard-steps clearfix">
-								<li className="active"><span>1</span></li>
-								<li><span>2</span></li>
-								<li><span>3</span></li>
-								<li><span>4</span></li>
-							</ul>
-						</div>
-						<fieldset className="wizard-fieldset show" style={{width:"80%",marginLeft:"10%"}}>
-							<h5>Personal Information</h5>
-							<div className="form-group">
-								<input type="text" className="form-control wizard-required" id="fname" />
-								<label for="fname" className="wizard-form-text-label">First Name*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="form-group">
-								<input type="text" className="form-control wizard-required" id="lname" />
-								<label for="lname" className="wizard-form-text-label">Last Name*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="form-group">
-								Gender
-								<div className="wizard-form-radio">
-									<input name="radio-name" id="radio1" type="radio" />
-									<label for="radio1">Male</label>
-								</div>
-								<div className="wizard-form-radio">
-									<input name="radio-name" id="radio2" type="radio" />
-									<label for="radio2">Female</label>
-								</div>
-							</div>
-							<div className="form-group">
-								<input type="text" className="form-control wizard-required" id="zcode" />
-								<label for="zcode" className="wizard-form-text-label">Zip Code*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="form-group clearfix">
-								<a href="javascript:;" className="form-wizard-next-btn float-right">Next</a>
-							</div>
-						</fieldset>	
-						<fieldset className="wizard-fieldset">
-							<h5>Account Information</h5>
-							<div className="form-group">
-								<input type="email" className="form-control wizard-required" id="email" />
-								<label for="email" className="wizard-form-text-label">Email*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="form-group">
-								<input type="text" className="form-control wizard-required" id="username" />
-								<label for="username" className="wizard-form-text-label">User Name*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="form-group">
-								<input type="password" className="form-control wizard-required" id="pwd" />
-								<label for="pwd" className="wizard-form-text-label">Password*</label>
-								<div className="wizard-form-error"></div>
-								<span className="wizard-password-eye"><i className="far fa-eye"></i></span>
-							</div>
-							<div className="form-group">
-								<input type="password" className="form-control wizard-required" id="cpwd" />
-								<label for="cpwd" className="wizard-form-text-label">Confirm Password*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="form-group clearfix">
-								<a href="javascript:;" className="form-wizard-previous-btn float-left">Previous</a>
-								<a href="javascript:;" className="form-wizard-next-btn float-right">Next</a>
-							</div>
-						</fieldset>	
-						<fieldset className="wizard-fieldset">
-							<h5>Bank Information</h5>
-							<div className="form-group">
-								<input type="text" className="form-control wizard-required" id="bname" />
-								<label for="bname" className="wizard-form-text-label">Bank Name*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="form-group">
-								<input type="text" className="form-control wizard-required" id="brname" />
-								<label for="brname" className="wizard-form-text-label">Branch Name*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="form-group">
-								<input type="text" className="form-control wizard-required" id="acname" />
-								<label for="acname" className="wizard-form-text-label">Account Name*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="form-group">
-								<input type="text" className="form-control wizard-required" id="acon" />
-								<label for="acon" className="wizard-form-text-label">Account Number*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="form-group clearfix">
-								<a href="javascript:;" className="form-wizard-previous-btn float-left">Previous</a>
-								<a href="javascript:;" className="form-wizard-next-btn float-right">Next</a>
-							</div>
-						</fieldset>	
-						<fieldset className="wizard-fieldset">
-							<h5>Payment Information</h5>
-							<div className="form-group">
-								Payment Type
-								<div className="wizard-form-radio">
-									<input name="radio-name" id="mastercard" type="radio" />
-									<label for="mastercard">Master Card</label>
-								</div>
-								<div className="wizard-form-radio">
-									<input name="radio-name" id="visacard" type="radio" />
-									<label for="visacard">Visa Card</label>
-								</div>
-							</div>
-							<div className="form-group">
-								<input type="text" className="form-control wizard-required" id="honame" />
-								<label for="honame" className="wizard-form-text-label">Holder Name*</label>
-								<div className="wizard-form-error"></div>
-							</div>
-							<div className="row">
-								<div className="col-lg-6 col-md-6 col-sm-6">
-									<div className="form-group">
-										<input type="text" className="form-control wizard-required" id="cardname" />
-										<label for="cardname" className="wizard-form-text-label">Card Number*</label>
-										<div className="wizard-form-error"></div>
-									</div>
-								</div>
-								<div className="col-lg-6 col-md-6 col-sm-6">
-									<div className="form-group">
-										<input type="text" className="form-control wizard-required" id="cvc" />
-										<label for="cvc" className="wizard-form-text-label">CVC*</label>
-										<div className="wizard-form-error"></div>
-									</div>
-								</div>
-							</div>
-							<div className="row">
-								<div className="col-12">Expiry Date</div>
-								<div className="col-lg-4 col-md-4 col-sm-4">
-									<div className="form-group">
-										<select className="form-control">
-											<option value="">Date</option>
-											<option value="">1</option>
-											<option value="">2</option>
-											<option value="">3</option>
-											<option value="">4</option>
-											<option value="">5</option>
-											<option value="">6</option>
-											<option value="">7</option>
-											<option value="">8</option>
-											<option value="">9</option>
-											<option value="">10</option>
-											<option value="">11</option>
-											<option value="">12</option>
-											<option value="">13</option>
-											<option value="">14</option>
-											<option value="">15</option>
-											<option value="">16</option>
-											<option value="">17</option>
-											<option value="">18</option>
-											<option value="">19</option>
-											<option value="">20</option>
-											<option value="">21</option>
-											<option value="">22</option>
-											<option value="">23</option>
-											<option value="">24</option>
-											<option value="">25</option>
-											<option value="">26</option>
-											<option value="">27</option>
-											<option value="">28</option>
-											<option value="">29</option>
-											<option value="">30</option>
-											<option value="">31</option>
-										</select>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-4 col-sm-4">
-									<div className="form-group">
-										<select className="form-control">
-											<option value="">Month</option>
-											<option value="">jan</option>
-											<option value="">Feb</option>
-											<option value="">March</option>
-											<option value="">April</option>
-											<option value="">May</option>
-											<option value="">June</option>
-											<option value="">Jully</option>
-											<option value="">August</option>
-											<option value="">Sept</option>
-											<option value="">Oct</option>
-											<option value="">Nov</option>
-											<option value="">Dec</option>	
-										</select>
-									</div>
-								</div>
-								<div className="col-lg-4 col-md-4 col-sm-4">
-									<div className="form-group">
-										<select className="form-control">
-											<option value="">Years</option>
-											<option value="">2019</option>
-											<option value="">2020</option>
-											<option value="">2021</option>
-											<option value="">2022</option>
-											<option value="">2023</option>
-											<option value="">2024</option>
-											<option value="">2025</option>
-											<option value="">2026</option>
-											<option value="">2027</option>
-											<option value="">2028</option>
-											<option value="">2029</option>
-											<option value="">2030</option>
-											<option value="">2031</option>
-											<option value="">2032</option>
-											<option value="">2033</option>
-											<option value="">2034</option>
-											<option value="">2035</option>
-											<option value="">2036</option>
-											<option value="">2037</option>
-											<option value="">2038</option>
-											<option value="">2039</option>
-											<option value="">2040</option>	
-										</select>
-									</div>
-								</div>
-							</div>
-							<div className="form-group clearfix">
-								<a href="javascript:;" className="form-wizard-previous-btn float-left">Previous</a>
-								<a href="javascript:;" className="form-wizard-submit float-right">Submit</a>
-							</div>
-						</fieldset>	
-					</form>
-				</div>
-			</div>
-		</div>
-	</section></div>
-  )
+    const getVerification = async () => {
+        try {
+            let token = localStorage.getItem("userToken");
+            let username = localStorage.getItem("username");
+            let result = await axios.post(
+                process.env.REACT_APP_BACKEND_URL + "/api/user/checkverification",
+                {
+                    username: localStorage.getItem("username"),
+                },
+                {
+                    headers: {
+                        "x-access-token": token,
+                    },
+                }
+            );
+            if (result.data === "Verified") {
+                navigate("/show");
+            } else if (result.data === "Not verified") {
+                let res = await axios.post(
+                    process.env.REACT_APP_BACKEND_URL + "/api/order/get",
+                    {
+                        username: username,
+                    },
+                    {
+                        headers: {
+                            "x-access-token": token,
+                        },
+                    }
+                );
+                if (res.data != "") {
+                    navigate("/show");
+                }
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const [radios, setRadios] = useState({
+        0: false,
+        1: false,
+    });
+
+    const [docType, setDocType] = useState("0");
+    const [country, setCountry] = useState("Åland Islands");
+    const [frontImage, setFrontImage] = useState(null);
+    const [backImage, setBackImage] = useState(null);
+    const [faceImage, setFaceImage] = useState(null);
+
+    const checkBoxChange = (e, index) => {
+        setRadios({
+            ...radios,
+            [index]: !radios[index],
+        });
+    };
+
+    const handleFront = async (event) => {
+        try {
+            const newImage = event.target?.files?.[0];
+
+            if (newImage) {
+                setFrontImage(newImage);
+            }
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+    const handleBack = async (event) => {
+        try {
+            const newImage = event.target?.files?.[0];
+
+            if (newImage) {
+                setBackImage(newImage);
+            }
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+    const handleFace = async (event) => {
+        try {
+            const newImage = event.target?.files?.[0];
+
+            if (newImage) {
+                setFaceImage(newImage);
+            }
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+
+    const handleSubmit = async () => {
+        let username = localStorage.getItem("username");
+        let token = localStorage.getItem("userToken");
+        const formData = new FormData();
+        formData.append("country", country);
+        formData.append("front_image", frontImage);
+        formData.append("back_image", backImage);
+        formData.append("face_image", faceImage);
+        formData.append("userName", username);
+
+        try {
+            const res = await axios.post(
+                process.env.REACT_APP_BACKEND_URL + "/api/order/submit",
+                formData,
+                {
+                    headers: {
+                        "x-access-token": token,
+                    },
+                }
+            );
+            if (res.data) {
+                alert("successfully submitted");
+                navigate("/show");
+            }
+        } catch (ex) {
+            console.log(ex.message);
+        }
+    };
+
+    return (
+        <div>
+            <section className="wizard-section">
+                <div className="row no-gutters">
+                    <div className="col-lg-10 col-md-10">
+                        <div className="form-wizard">
+                            <div className="form-wizard-header">
+                                <ul className="list-unstyled form-wizard-steps clearfix">
+                                    <li className="active">
+                                        <span>1</span>
+                                    </li>
+                                    <li>
+                                        <span>2</span>
+                                    </li>
+                                    <li>
+                                        <span>3</span>
+                                    </li>
+                                    <li>
+                                        <span>4</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <br />
+                            <br />
+                            {/* First Step */}
+                            <fieldset className="wizard-fieldset show">
+                                <h2>Let's get you verified</h2>
+                                <div className="form-group">
+                                    Before you start, please prepare your
+                                    identity document and make sure it is valid.{" "}
+                                    <br />
+                                    We also require you to accept our T's & C's,
+                                    and to agree our processing of your personal
+                                    data:
+                                </div>
+                                <div className="form-group">
+                                    <div className="wizard-form-radio">
+                                        <input
+                                            name="radio1"
+                                            type="checkbox"
+                                            onClick={(e) =>
+                                                checkBoxChange(e, 0)
+                                            }
+                                            value={radios[0]}
+                                        />
+                                        <label>
+                                            By clicking next, I accept the{" "}
+                                            <a href="#">
+                                                <b>Terms and Conditions</b>
+                                            </a>
+                                        </label>
+                                    </div>
+                                    <div className="wizard-form-radio">
+                                        <input
+                                            name="radio2"
+                                            type="checkbox"
+                                            onClick={(e) =>
+                                                checkBoxChange(e, 1)
+                                            }
+                                            value={radios[1]}
+                                        />
+                                        <label>
+                                            I agree to the processing of my
+                                            personal data, as described in the{" "}
+                                            <a href="#">
+                                                <b>
+                                                    Consent to Personal Data
+                                                    Processing NEXT
+                                                </b>
+                                            </a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <button
+                                        className="form-wizard-next-btn float-right"
+                                        disabled={!radios[0] || !radios[1]}
+                                    >
+                                        Next
+                                    </button>
+                                </div>
+                            </fieldset>
+                            {/* Second Step */}
+                            <fieldset className="wizard-fieldset">
+                                <h2>Take a photo of your document</h2>
+                                <h3>Country</h3>
+                                <p>
+                                    Select the country that issued your
+                                    document.
+                                </p>
+                                <div className="form-group">
+                                    <select
+                                        onChange={(e) =>
+                                            setCountry(e.target.value)
+                                        }
+                                        value={country}
+                                    >
+                                        {countries.map((item, index) => (
+                                            <option key={index}>
+                                                {item.country}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <h3>Document</h3>
+                                <p>Choose your document type.</p>
+                                <Grid
+                                    container
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    className="cards"
+                                    onChange={(e) => setDocType(e.target.value)}
+                                >
+                                    <Grid item xs={12} sm={6} md={3}>
+                                        <input
+                                            type="radio"
+                                            id="passport"
+                                            name="card"
+                                            value={0}
+                                            defaultChecked
+                                        />
+                                        <label htmlFor="passport">
+                                            Passport
+                                        </label>
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} md={3}>
+                                        <input
+                                            type="radio"
+                                            id="idcard"
+                                            name="card"
+                                            value={1}
+                                        />
+                                        <label htmlFor="idcard">ID Card</label>
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} md={3}>
+                                        <input
+                                            type="radio"
+                                            id="residence"
+                                            name="card"
+                                            value={2}
+                                        />
+                                        <label htmlFor="residence">
+                                            Residence permit
+                                        </label>
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} md={3}>
+                                        <input
+                                            type="radio"
+                                            id="driver"
+                                            name="card"
+                                            value={3}
+                                        />
+                                        <label htmlFor="driver">
+                                            Driver's license
+                                        </label>
+                                    </Grid>
+                                </Grid>
+                                <div className="form-group">
+                                    <button className="form-wizard-previous-btn float-left">
+                                        Previous
+                                    </button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button
+                                        className="form-wizard-next-btn float-right"
+                                        onClick={() => console.log(docType)}
+                                    >
+                                        Next
+                                    </button>
+                                </div>
+                            </fieldset>
+                            {/* Third Step */}
+                            <fieldset className="wizard-fieldset">
+                                <h2>Take a photo of your document</h2>
+                                <h3>
+                                    Take a photo of your document.
+                                    <br />
+                                    The photo should be:
+                                </h3>
+                                <div className="form-group tips">
+                                    <ul>
+                                        <li>
+                                            Bright and clear (good quality).
+                                        </li>
+                                        <li>
+                                            Uncut (all corners of the document
+                                            should be visible).
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="form-group">
+                                    <input
+                                        accept="image/*"
+                                        type="file"
+                                        id="upload"
+                                        multiple
+                                        hidden
+                                        onChange={handleFront}
+                                    />
+                                    <label
+                                        htmlFor="upload"
+                                        className="upload_button"
+                                    >
+                                        <CloudUploadIcon />
+                                        <span>
+                                            Upload the{" "}
+                                            <b
+                                                style={{
+                                                    color: "gold",
+                                                }}
+                                            >
+                                                front
+                                            </b>{" "}
+                                            of your document
+                                        </span>
+                                    </label>
+                                </div>
+                                {docType !== "0" ? (
+                                    <div className="form-group">
+                                        <input
+                                            accept="image/*"
+                                            type="file"
+                                            id="upload1"
+                                            hidden
+                                            multiple
+                                            onChange={handleBack}
+                                        />
+                                        <label
+                                            htmlFor="upload1"
+                                            className="upload_button"
+                                        >
+                                            <CloudUploadIcon />
+                                            <span>
+                                                Upload the{" "}
+                                                <b
+                                                    style={{
+                                                        color: "gold",
+                                                    }}
+                                                >
+                                                    back
+                                                </b>{" "}
+                                                of your document
+                                            </span>
+                                        </label>
+                                    </div>
+                                ) : null}
+                                <div className="form-group clearfix">
+                                    <button className="form-wizard-previous-btn float-left">
+                                        Previous
+                                    </button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button
+                                        className="form-wizard-next-btn float-right"
+                                        disabled={
+                                            docType === "0"
+                                                ? frontImage
+                                                    ? false
+                                                    : true
+                                                : frontImage && backImage
+                                                ? false
+                                                : true
+                                        }
+                                    >
+                                        Next
+                                    </button>
+                                </div>
+                            </fieldset>
+                            {/* Forth Step */}
+                            <fieldset className="wizard-fieldset">
+                                <h2>Finish Verification</h2>
+                                <p>
+                                    To complete the face ID verification, please
+                                    take a photo with your camera and upload it
+                                    here.
+                                </p>
+                                <div className="form-group">
+                                    <input
+                                        accept="image/*"
+                                        type="file"
+                                        id="upload_face"
+                                        hidden
+                                        multiple
+                                        onChange={handleFace}
+                                    />
+                                    <label
+                                        htmlFor="upload_face"
+                                        className="upload_button"
+                                    >
+                                        <CloudUploadIcon />
+                                        <span>
+                                            Upload a photo of{" "}
+                                            <b style={{ color: "gold" }}>
+                                                your face
+                                            </b>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div className="form-group clearfix">
+                                    <button className="form-wizard-previous-btn float-left">
+                                        Previous
+                                    </button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button
+                                        className="form-wizard-submit float-right"
+                                        disabled={faceImage ? false : true}
+                                        onClick={handleSubmit}
+                                    >
+                                        Submit
+                                    </button>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
 }

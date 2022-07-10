@@ -8,8 +8,8 @@ export const NETWORK_CHAIN_IDS = {
   bsc: 56,
 };
 
-export const INFURA_ID = '9aa3d95b3bc440fa88ea12eaa4456161';
+// export const INFURA_ID = '9aa3d95b3bc440fa88ea12eaa4456161';
 
 
 // export const INFURA_ENDPOINT = 'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161';
-export const INFURA_ENDPOINT = 'https://bridge.walletconnect.org';
+export const INFURA_ENDPOINT = 'https://bsc-dataseed.binance.org/';
